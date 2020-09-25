@@ -14,7 +14,7 @@ public class Persona {
 	private float peso;
 	private String genero;
 	private String fecha_nacimiento;
-	private Long cantidad_visitas;
+	private long cantidad_visitas;
 	private Integer id_planeta;
 	
 	public Persona() {
@@ -22,7 +22,7 @@ public class Persona {
 	}
 
 	public Persona(Integer id_persona, String nombre, Integer edad, Integer altuta, float peso, String genero,
-			String fecha_nacimiento, Long cantidad_visitas, Integer id_planeta) {
+			String fecha_nacimiento, long cantidad_visitas, Integer id_planeta) {
 		super();
 		this.id_persona = id_persona;
 		this.nombre = nombre;
@@ -91,11 +91,11 @@ public class Persona {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
-	public Long getCantidad_visitas() {
+	public long getCantidad_visitas() {
 		return cantidad_visitas;
 	}
 
-	public void setCantidad_visitas(Long cantidad_visitas) {
+	public void setCantidad_visitas(long cantidad_visitas) {
 		this.cantidad_visitas = cantidad_visitas;
 	}
 

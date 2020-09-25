@@ -1,0 +1,35 @@
+package com.planetas.mvc.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.planetas.mvc.models.Persona;
+import com.planetas.mvc.services.PersonaService;
+
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/api")
+public class PersonasController {
+	
+		@Autowired 
+		private PersonaService personaService;
+
+		// Obtener todas las personas
+		@GetMapping("/Personas")
+		public List<Persona> consultarTodasPersonas(){
+			List<Persona> listaPersonas = personaService.getAllPersonas();
+			return listaPersonas;
+		}
+		// actualizar contador
+		@PutMapping("/CantidadVisitas/{id}")
+		public void createEmployee(int id_persona) {
+			 personaService.saveorUpdate(id_persona);
+		}
+		 
+}
