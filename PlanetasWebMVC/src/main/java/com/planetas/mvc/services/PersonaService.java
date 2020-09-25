@@ -17,6 +17,7 @@ public class PersonaService {
 
 	@Autowired
 	PersonaRepository personaRepository;
+	@Autowired 
 	private PlanetaService planetaService;
 
 
@@ -41,9 +42,8 @@ public class PersonaService {
 		persona = getPersonabyId(id_persona);
 		persona.setCantidad_visitas(persona.getCantidad_visitas()+1);
 		
-		// aumentar contador planeta
+		// conocer planeta
 		planeta = planetaService.getPlanetabyId(persona.getId_planeta());
-		planeta.setCantidad_vistas(planeta.getCantidad_vistas()+1);
 		
 		//actualizar planeta y persona
 		planetaService.saveorUpdate(planeta.getId_planeta());

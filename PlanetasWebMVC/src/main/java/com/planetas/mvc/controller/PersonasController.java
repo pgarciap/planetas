@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,8 +29,15 @@ public class PersonasController {
 		}
 		// actualizar contador
 		@PutMapping("/CantidadVisitas/{id}")
-		public void createEmployee(int id_persona) {
-			 personaService.saveorUpdate(id_persona);
+		public Persona createEmployee(@PathVariable("id") int id) {
+			 personaService.saveorUpdate(id);
+			 return personaService.getPersonabyId(id);
+		}
+		
+		@PutMapping("/CantidadVisitasTotal/{id}")
+		public Persona CantidadVisitasTotal(@PathVariable("id") int id) {
+			System.out.println(id);
+			 return personaService.getPersonabyId(id);
 		}
 		 
 }

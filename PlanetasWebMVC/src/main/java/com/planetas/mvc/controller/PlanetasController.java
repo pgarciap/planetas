@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.planetas.mvc.models.Persona;
 import com.planetas.mvc.models.Planeta;
 import com.planetas.mvc.services.PlanetaService;
 
@@ -32,7 +33,9 @@ public class PlanetasController {
 	}
 	// actualizar contador
 	@PutMapping("/CantidadVisitasPlaneta/{id}")
-	public void createEmployee(@PathVariable("id") int id) {
+	public Planeta createEmployee(@PathVariable("id") int id) {
 		planetaService.saveorUpdate(id);
+		return planetaService.getPlanetabyId(id);
 	}
+	
 }
