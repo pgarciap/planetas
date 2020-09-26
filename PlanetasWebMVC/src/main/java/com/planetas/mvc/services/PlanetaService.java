@@ -36,15 +36,18 @@ public class PlanetaService {
 	}
 	
 	public List<Planeta> getTopPlanetas(){
+		int i=0;
 		List<Planeta> planetas = new ArrayList<Planeta>();
+		List<Planeta> planetasTop = new ArrayList<Planeta>();
 		planetaRepository.findAll().forEach(planeta -> planetas.add(planeta));
 		planetas.sort(Comparator.comparing(Planeta::getCantidad_vistas).reversed());
-		for (int i = 0; i < planetas.size(); i++) {
-		   if (i>= 3) {
-			   planetas.remove(i);
-		   }
+		for (Planeta planeta2 : planetas) {
+			if (i<3) {
+				planetasTop.add(planeta2);
+			}
+			i++;
 		}
-		return planetas;
+		return planetasTop;
 	}
 	
 	public void inicializarPlanetas() {

@@ -50,15 +50,19 @@ public class PersonaService {
 	}
 	
 	public List<Persona> getTopPersonas(){
+		int i=0;
 		List<Persona> personas = new ArrayList<Persona>();
+		List<Persona> personasTop = new ArrayList<Persona>();
 		personaRepository.findAll().forEach(persona -> personas.add(persona));
 		personas.sort(Comparator.comparing(Persona::getCantidad_visitas).reversed());
-		for (int i = 0; i < personas.size(); i++) {
-		   if (i>= 3) {
-			   personas.remove(i);
-		   }
+		
+		for (Persona persona2 : personas) {
+			if (i < 3) {
+				personasTop.add(persona2);
+			}
+			i++;
 		}
-		return personas;
+		return personasTop;
 	}
 	
 	public void inicializarPersonas() {
