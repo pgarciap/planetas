@@ -16,13 +16,14 @@ public class Persona {
 	private String fecha_nacimiento;
 	private long cantidad_visitas;
 	private Integer id_planeta;
+	private String nombre_planeta;
 	
 	public Persona() {
 		
 	}
 
 	public Persona(Integer id_persona, String nombre, Integer edad, Integer altuta, float peso, String genero,
-			String fecha_nacimiento, long cantidad_visitas, Integer id_planeta) {
+			String fecha_nacimiento, long cantidad_visitas, Integer id_planeta, String nombre_planeta) {
 		super();
 		this.id_persona = id_persona;
 		this.nombre = nombre;
@@ -33,6 +34,7 @@ public class Persona {
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.cantidad_visitas = cantidad_visitas;
 		this.id_planeta = id_planeta;
+		this.nombre_planeta = nombre_planeta;
 	}
 
 	public Integer getId_persona() {
@@ -106,6 +108,17 @@ public class Persona {
 	public void setId_planeta(Integer id_planeta) {
 		this.id_planeta = id_planeta;
 	}
+
+	public String getNombre_planeta() {
+		return nombre_planeta;
+	}
+
+	public void setNombre_planeta(String nombre_planeta) {
+		this.nombre_planeta = nombre_planeta;
+	}
+
+	
+	
 	
 	
 }

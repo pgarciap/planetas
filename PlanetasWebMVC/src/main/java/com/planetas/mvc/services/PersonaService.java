@@ -10,8 +10,6 @@ import com.planetas.mvc.models.Persona;
 import com.planetas.mvc.models.Planeta;
 import com.planetas.mvc.repositories.PersonaRepository;
 
-
-
 @Service
 public class PersonaService {
 
@@ -49,8 +47,6 @@ public class PersonaService {
 		planetaService.saveorUpdate(planeta.getId_planeta());
 		personaRepository.save(persona);
 	}
-	
-	
 	
 	
 }

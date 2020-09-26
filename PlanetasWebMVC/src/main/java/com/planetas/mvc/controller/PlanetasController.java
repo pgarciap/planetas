@@ -32,7 +32,7 @@ public class PlanetasController {
 		return listaPlanetas;
 	}
 	// actualizar contador
-	@PutMapping("/CantidadVisitasPlaneta/{id}")
+	@GetMapping("/CantidadVisitasPlaneta/{id}")
 	public Planeta createEmployee(@PathVariable("id") int id) {
 		planetaService.saveorUpdate(id);
 		return planetaService.getPlanetabyId(id);

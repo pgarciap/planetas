@@ -28,13 +28,13 @@ public class PersonasController {
 			return listaPersonas;
 		}
 		// actualizar contador
-		@PutMapping("/CantidadVisitas/{id}")
+		@GetMapping("/CantidadVisitas/{id}")
 		public Persona createEmployee(@PathVariable("id") int id) {
 			 personaService.saveorUpdate(id);
 			 return personaService.getPersonabyId(id);
 		}
 		
-		@PutMapping("/CantidadVisitasTotal/{id}")
+		@GetMapping("/CantidadVisitasTotal/{id}")
 		public Persona CantidadVisitasTotal(@PathVariable("id") int id) {
 			System.out.println(id);
 			 return personaService.getPersonabyId(id);
