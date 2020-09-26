@@ -33,7 +33,7 @@ public class InizializarController {
 	   * @return Modelo Inicializar
 	   */
 		@GetMapping("/InicializarData")
-		public Inizializar actualizarCantidadVisitasPlaneta() {
+		public Inizializar cargarData() {
 			inizializarDataService.inicializarData();
 			return new Inizializar(1,"ok");
 		}
