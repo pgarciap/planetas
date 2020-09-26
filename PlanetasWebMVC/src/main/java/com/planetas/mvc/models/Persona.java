@@ -7,23 +7,25 @@ import javax.persistence.Id;
 public class Persona {
 	
 	@Id
-	private Integer id_persona;
+	private int id_persona;
 	private String nombre;
-	private Integer edad;
-	private Integer altuta;
+	private int edad;
+	private int altuta;
 	private float peso;
 	private String genero;
 	private String fecha_nacimiento;
 	private long cantidad_visitas;
-	private Integer id_planeta;
+	private int id_planeta;
 	private String nombre_planeta;
 	
 	public Persona() {
 		
 	}
 
-	public Persona(Integer id_persona, String nombre, Integer edad, Integer altuta, float peso, String genero,
-			String fecha_nacimiento, long cantidad_visitas, Integer id_planeta, String nombre_planeta) {
+
+
+	public Persona(int id_persona, String nombre, int edad, int altuta, float peso, String genero,
+			String fecha_nacimiento, long cantidad_visitas, int id_planeta, String nombre_planeta) {
 		super();
 		this.id_persona = id_persona;
 		this.nombre = nombre;
@@ -37,11 +39,13 @@ public class Persona {
 		this.nombre_planeta = nombre_planeta;
 	}
 
-	public Integer getId_persona() {
+
+
+	public int getId_persona() {
 		return id_persona;
 	}
 
-	public void setId_persona(Integer id_persona) {
+	public void setId_persona(int id_persona) {
 		this.id_persona = id_persona;
 	}
 
@@ -53,19 +57,19 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	public Integer getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
-	public void setEdad(Integer edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 
-	public Integer getAltuta() {
+	public int getAltuta() {
 		return altuta;
 	}
 
-	public void setAltuta(Integer altuta) {
+	public void setAltuta(int altuta) {
 		this.altuta = altuta;
 	}
 
@@ -101,11 +105,11 @@ public class Persona {
 		this.cantidad_visitas = cantidad_visitas;
 	}
 
-	public Integer getId_planeta() {
+	public int getId_planeta() {
 		return id_planeta;
 	}
 
-	public void setId_planeta(Integer id_planeta) {
+	public void setId_planeta(int id_planeta) {
 		this.id_planeta = id_planeta;
 	}
 

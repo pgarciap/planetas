@@ -29,15 +29,16 @@ public class PersonasController {
 		}
 		// actualizar contador
 		@GetMapping("/CantidadVisitas/{id}")
-		public Persona createEmployee(@PathVariable("id") int id) {
+		public Persona actualizarCantidadVisitasPersona(@PathVariable("id") int id) {
 			 personaService.saveorUpdate(id);
 			 return personaService.getPersonabyId(id);
 		}
 		
-		@GetMapping("/CantidadVisitasTotal/{id}")
-		public Persona CantidadVisitasTotal(@PathVariable("id") int id) {
-			System.out.println(id);
-			 return personaService.getPersonabyId(id);
+		// Obtener top las personas
+		@GetMapping("/TopPersonas")
+		public List<Persona> TopPersonas(){
+			List<Persona> listaPersonas = personaService.getTopPersonas();
+			return listaPersonas;
 		}
 		 
 }

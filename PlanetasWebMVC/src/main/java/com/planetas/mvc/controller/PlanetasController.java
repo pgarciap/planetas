@@ -33,9 +33,16 @@ public class PlanetasController {
 	}
 	// actualizar contador
 	@GetMapping("/CantidadVisitasPlaneta/{id}")
-	public Planeta createEmployee(@PathVariable("id") int id) {
+	public Planeta actualizarCantidadVisitasPlaneta(@PathVariable("id") int id) {
 		planetaService.saveorUpdate(id);
 		return planetaService.getPlanetabyId(id);
+	}
+	
+	// Obtener top las planetas
+	@GetMapping("/TopPlanetas")
+	public List<Planeta> TopPersonas(){
+		List<Planeta> listaPlanetas = planetaService.getTopPlanetas();
+		return listaPlanetas;
 	}
 	
 }

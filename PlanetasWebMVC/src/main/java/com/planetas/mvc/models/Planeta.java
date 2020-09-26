@@ -6,20 +6,20 @@ import javax.persistence.Id;
 @Entity
 public class Planeta {
 	@Id
-	private Integer id_planeta;
+	private int id_planeta;
 	private String nombre;
 	private String periodo_rotacion;
 	private String clima;
 	private String terreno;
-	private Integer cantidad_personas;
-	private Integer cantidad_vistas;
+	private int cantidad_personas;
+	private int cantidad_vistas;
 	
 	public Planeta() {
 		
 	}
 
-	public Planeta(Integer id_planeta, String nombre, String periodo_rotacion, String clima, String terreno,
-			Integer cantidad_personas, Integer cantidad_vistas) {
+	public Planeta(int id_planeta, String nombre, String periodo_rotacion, String clima, String terreno,
+			int cantidad_personas, int cantidad_vistas) {
 		super();
 		this.id_planeta = id_planeta;
 		this.nombre = nombre;
@@ -30,11 +30,11 @@ public class Planeta {
 		this.cantidad_vistas = cantidad_vistas;
 	}
 
-	public Integer getId_planeta() {
+	public int getId_planeta() {
 		return id_planeta;
 	}
 
-	public void setId_planeta(Integer id_planeta) {
+	public void setId_planeta(int id_planeta) {
 		this.id_planeta = id_planeta;
 	}
 
@@ -70,19 +70,19 @@ public class Planeta {
 		this.terreno = terreno;
 	}
 
-	public Integer getCantidad_personas() {
+	public int getCantidad_personas() {
 		return cantidad_personas;
 	}
 
-	public void setCantidad_personas(Integer cantidad_personas) {
+	public void setCantidad_personas(int cantidad_personas) {
 		this.cantidad_personas = cantidad_personas;
 	}
 
-	public Integer getCantidad_vistas() {
+	public int getCantidad_vistas() {
 		return cantidad_vistas;
 	}
 
-	public void setCantidad_vistas(Integer cantidad_vistas) {
+	public void setCantidad_vistas(int cantidad_vistas) {
 		this.cantidad_vistas = cantidad_vistas;
 	}
 	
