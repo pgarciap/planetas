@@ -28,7 +28,7 @@ public class PersonasController {
 		}
 		// actualizar contador
 		@GetMapping("/CantidadVisitas/{id}")
-		public Persona actualizarCantidadVisitasPersona(@PathVariable("id") int id) throws Exception {
+		public Persona consultarPersonaId(@PathVariable("id") int id) throws Exception {
 			 personaService.saveorUpdate(id);
 			 return personaService.getPersonabyId(id);
 		}

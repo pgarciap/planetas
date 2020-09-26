@@ -25,20 +25,20 @@ public class PlanetasController {
 
 	// Obtener todas las planetas
 	@GetMapping("/todosPlanetas")
-	public List<Planeta> consultarTodasPersonas(){
+	public List<Planeta> consultarTodosPlanetas(){
 		List<Planeta> listaPlanetas = planetaService.getAllPlanetas();
 		return listaPlanetas;
 	}
 	// actualizar contador
 	@GetMapping("/CantidadVisitasPlaneta/{id}")
-	public Planeta actualizarCantidadVisitasPlaneta(@PathVariable("id") int id) throws Exception {
+	public Planeta consultarPlanetaId(@PathVariable("id") int id) throws Exception {
 		planetaService.saveorUpdate(id);
 		return planetaService.getPlanetabyId(id);
 	}
 	
 	// Obtener top las planetas
 	@GetMapping("/TopPlanetas")
-	public List<Planeta> TopPersonas(){
+	public List<Planeta> TopPlanetas(){
 		List<Planeta> listaPlanetas = planetaService.getTopPlanetas();
 		return listaPlanetas;
 	}
