@@ -27,12 +27,17 @@ public class PersonaService {
 		return personas;
 	}
 
-	public Persona getPersonabyId (int id) {
+	public Persona getPersonabyId (int id) throws Exception {
+		Persona persona = personaRepository.findById(id).get();
 		
-		return personaRepository.findById(id).get();
+		if (persona == null)
+			throw new Exception("Error al buscar ID persona  - PersonaService.getPersonabyId");
+		
+		return persona;
 	}
 
-	public void saveorUpdate(int id_persona) {
+	@SuppressWarnings("unused")
+	public void saveorUpdate(int id_persona) throws Exception {
 		
 		Persona persona = new Persona();
 		Planeta planeta = new Planeta();
@@ -40,9 +45,13 @@ public class PersonaService {
 		// aumentar contador personas
 		persona = getPersonabyId(id_persona);
 		persona.setCantidad_visitas(persona.getCantidad_visitas()+1);
+		if (persona == null)
+			throw new Exception("Error al buscar ID persona - PersonaService.saveorUpdate");
 		
 		// conocer planeta
 		planeta = planetaService.getPlanetabyId(persona.getId_planeta());
+		if (persona == null)
+			throw new Exception("Error al buscar ID - PersonaService.saveorUpdate");
 		
 		//actualizar planeta y persona
 		planetaService.saveorUpdate(planeta.getId_planeta());

@@ -23,14 +23,24 @@ public class PlanetaService {
 		return planetas;
 	}
 
-	public Planeta getPlanetabyId (int id) {
+	public Planeta getPlanetabyId (int id) throws Exception {
 		
-		return planetaRepository.findById(id).get();
+		Planeta planeta = new Planeta();
+		planeta = planetaRepository.findById(id).get();
+		
+		if (planeta == null)
+			throw new Exception("Error al buscar ID planeta  - PlanetaService.getPlanetabyId");
+		
+		return planeta;
 	}
 
-	public void saveorUpdate(int idPlaneta) {
+	public void saveorUpdate(int idPlaneta) throws Exception {
 		Planeta planeta = new Planeta();
 		planeta = getPlanetabyId(idPlaneta);
+		
+		if (planeta == null)
+			throw new Exception("Error al buscar ID planeta  - PlanetaService.saveorUpdate");
+		
 		planeta.setCantidad_vistas(planeta.getCantidad_vistas()+1);
 		planetaRepository.save(planeta);
 	}

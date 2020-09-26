@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.planetas.mvc.models.Persona;
 import com.planetas.mvc.models.Planeta;
 import com.planetas.mvc.services.PlanetaService;
 
@@ -33,7 +31,7 @@ public class PlanetasController {
 	}
 	// actualizar contador
 	@GetMapping("/CantidadVisitasPlaneta/{id}")
-	public Planeta actualizarCantidadVisitasPlaneta(@PathVariable("id") int id) {
+	public Planeta actualizarCantidadVisitasPlaneta(@PathVariable("id") int id) throws Exception {
 		planetaService.saveorUpdate(id);
 		return planetaService.getPlanetabyId(id);
 	}
