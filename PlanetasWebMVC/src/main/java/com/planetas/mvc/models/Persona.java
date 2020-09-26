@@ -3,6 +3,16 @@ package com.planetas.mvc.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
+/**
+ * Modelo Persona.
+ * se inicializa las variables con get y set.
+ * se crea contructor para llamar el objeto Persona
+ *
+ * @autor Paola Garcia
+ * @version 1.0 - 26/09/2020
+ */
+
 @Entity
 public class Persona {
 	
@@ -22,8 +32,10 @@ public class Persona {
 		
 	}
 
-
-
+	
+	/**
+	 * Constructor Persona.
+	 */
 	public Persona(int id_persona, String nombre, int edad, int altuta, float peso, String genero,
 			String fecha_nacimiento, long cantidad_visitas, int id_planeta, String nombre_planeta) {
 		super();

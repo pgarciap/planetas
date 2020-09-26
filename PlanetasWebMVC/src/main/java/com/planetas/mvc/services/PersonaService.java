@@ -11,6 +11,13 @@ import com.planetas.mvc.models.Persona;
 import com.planetas.mvc.models.Planeta;
 import com.planetas.mvc.repositories.PersonaRepository;
 
+/**
+ * Servicio personaService.
+ * servicio encargado de consultar la base de datos H2 de la tabla personas
+ *
+ * @autor Paola Garcia
+ * @version 1.0 - 26/09/2020
+ */
 @Service
 public class PersonaService {
 
@@ -19,14 +26,25 @@ public class PersonaService {
 	@Autowired 
 	private PlanetaService planetaService;
 
-
+	/**
+	   * Obtener todas las personas
+	   * Metodo encargado de entregar lista de personas
+	   * @return lista Personas
+	   */
 	public List<Persona> getAllPersonas(){
 		List<Persona> personas = new ArrayList<Persona>();
 		personaRepository.findAll().forEach(persona -> personas.add(persona));
 		
 		return personas;
 	}
-
+	
+	/**
+	   * buscar persona por id
+	   * Metodo encargado buscar la persona con el id ingresado
+	   * @param id - id de la persona a consultar
+	   * @return modelo persona
+	   * @throws error al no encontrar la persona
+	   */
 	public Persona getPersonabyId (int id) throws Exception {
 		Persona persona = personaRepository.findById(id).get();
 		
@@ -35,6 +53,13 @@ public class PersonaService {
 		
 		return persona;
 	}
+	
+	/**
+	   * Actualizar cantidad visitas por planeta y persona
+	   * Metodo encargado actualizar la cantidad de visitas por planeta y personas
+	   * @param id - id de la persona a actualizar
+	   * @throws error al no encontrar la persona o planeta
+	   */
 
 	@SuppressWarnings("unused")
 	public void saveorUpdate(int id_persona) throws Exception {
@@ -51,12 +76,18 @@ public class PersonaService {
 		// conocer planeta
 		planeta = planetaService.getPlanetabyId(persona.getId_planeta());
 		if (persona == null)
-			throw new Exception("Error al buscar ID - PersonaService.saveorUpdate");
+			throw new Exception("Error al buscar ID planeta - PersonaService.saveorUpdate");
 		
 		//actualizar planeta y persona
 		planetaService.saveorUpdate(planeta.getId_planeta());
 		personaRepository.save(persona);
 	}
+	
+	/**
+	   * Top 3 personas
+	   * Metado encargado de consultar las 3 primeras personas con mas visitas
+	   * @return Lista personas
+	   */
 	
 	public List<Persona> getTopPersonas(){
 		int i=0;
@@ -73,6 +104,11 @@ public class PersonaService {
 		}
 		return personasTop;
 	}
+	
+	/**
+	   * Inicializar personas
+	   * Metado encargado de cargar personas por defecto
+	   */
 	
 	public void inicializarPersonas() {
 		personaRepository.save(new Persona(123,"Paola Garcia",27,150,(float)12.5,"Femenino","1993/10/05",0,1,"Mercurio"));

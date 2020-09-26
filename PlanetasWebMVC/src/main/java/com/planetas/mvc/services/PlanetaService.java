@@ -10,19 +10,38 @@ import org.springframework.stereotype.Service;
 import com.planetas.mvc.models.Planeta;
 import com.planetas.mvc.repositories.PlanetaRepository;
 
+/**
+ * Servicio planetaService.
+ * servicio encargado de consultar la base de datos H2 de la tabla planeta
+ *
+ * @autor Paola Garcia
+ * @version 1.0 - 26/09/2020
+ */
 @Service
 public class PlanetaService {
 
 	@Autowired
 	PlanetaRepository planetaRepository;
-
+	
+	/**
+	   * Obtener todas los planetas
+	   * Metodo encargado de entregar lista de planetas
+	   * @return lista Planetas
+	   */
 	public List<Planeta> getAllPlanetas(){
 		List<Planeta> planetas = new ArrayList<Planeta>();
 		planetaRepository.findAll().forEach(planeta -> planetas.add(planeta));
 		
 		return planetas;
 	}
-
+	
+	/**
+	   * buscar planeta por id
+	   * Metodo encargado buscar el planeta con el id ingresado
+	   * @param id - id del planeta a consultar
+	   * @return modelo planeta
+	   * @throws error al no encontrar la planeta
+	   */
 	public Planeta getPlanetabyId (int id) throws Exception {
 		
 		Planeta planeta = new Planeta();
@@ -33,7 +52,13 @@ public class PlanetaService {
 		
 		return planeta;
 	}
-
+	
+	/**
+	   * Actualizar cantidad visitas por planeta
+	   * Metodo encargado actualizar la cantidad de visitas por planeta
+	   * @param id - id del planeta a actualizar
+	   * @throws error al no encontrar planeta
+	   */
 	public void saveorUpdate(int idPlaneta) throws Exception {
 		Planeta planeta = new Planeta();
 		planeta = getPlanetabyId(idPlaneta);
@@ -45,6 +70,11 @@ public class PlanetaService {
 		planetaRepository.save(planeta);
 	}
 	
+	/**
+	   * Top 3 planetas
+	   * Metado encargado de consultar los 3 primeros personas con mas visitas
+	   * @return Lista planetas
+	   */
 	public List<Planeta> getTopPlanetas(){
 		int i=0;
 		List<Planeta> planetas = new ArrayList<Planeta>();
@@ -60,6 +90,10 @@ public class PlanetaService {
 		return planetasTop;
 	}
 	
+	/**
+	   * Inicializar personas
+	   * Metado encargado de cargar planetas por defecto
+	   */
 	public void inicializarPlanetas() {
 		planetaRepository.save(new Planeta(1,"Mercurio","58d 15h 30m","Caliente","Rocoso",2,0));
 		planetaRepository.save(new Planeta(2,"Venus","116d 18h 0m","Caliente","Rocoso",2,0));
